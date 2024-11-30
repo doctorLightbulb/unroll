@@ -36,9 +36,16 @@ nosetests.xml
 .pydevproject
 
 # Temp files
-
 *~
 
 # Pipy codes
-
 .pypirc
+
+# venv
+venv
+
+# Visual Studio Code files
+.vscode
+
+# Test folders
+/tests
