@@ -1,11 +1,10 @@
-
 LILY_TEMPLATE = r"""
 \version "2.12.0"
 
 \header {
- title = "" 
- subtitle = "" 
- composer = "" 
+ title = ""
+ subtitle = ""
+ composer = ""
  arranger = ""
  source = ""
  style = ""
@@ -16,9 +15,9 @@ LILY_TEMPLATE = r"""
 upper = \new Voice \with {
     \remove "Note_heads_engraver"
     \consists "Completion_heads_engraver" } {
-    
+
   \time 4/4
-  
+
   $CONTENT_RIGHT_HAND
 }
 
@@ -26,17 +25,17 @@ upper = \new Voice \with {
 lower =  \new Voice \with {
     \remove "Note_heads_engraver"
     \consists "Completion_heads_engraver" } {
-    
+
   \clef bass
   \time 4/4
-  
+
   $CONTENT_LEFT_HAND
 }
 
 \score {
   \new PianoStaff <<
     \set PianoStaff.instrumentName = #"Piano  "
-    
+
     \new Staff = "upper" \upper
     \new Staff = "lower" \lower
   >>
@@ -44,4 +43,3 @@ lower =  \new Voice \with {
   \midi{}
 }
 """
-
