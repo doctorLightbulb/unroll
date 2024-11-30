@@ -1,0 +1,27 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unroll"
+version = "1.0.0"
+description = ""
+readme = "README.rst"
+authors = [{ name = "Zulko" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["Piano", "rolls", "transcription", "MIDI", "video", "sheet music]"]
+dependencies = ["numpy", "music21", "moviepy"]
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = ["black"]
+
+[project.urls]
+Homepage = "https://github.com/Zulko/unroll"
