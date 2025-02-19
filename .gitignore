@@ -46,6 +46,3 @@ venv
 
 # Visual Studio Code files
 .vscode
-
-# Test folders
-/tests
