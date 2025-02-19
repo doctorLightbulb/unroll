@@ -14,14 +14,14 @@ You can use it like this: ::
     focus = lambda im : im[[156],58:478]
     scan = video2scan(videofile = "limehouse_nights.mp4", focus = focus)
     keystrikes = rollscan2keystrikes(scan)
-    keystrikes = ks.transposed(26)
+    keystrikes = keystrikes.transposed(26)
     keystrikes.transcribe('score.ly', quarter_durations = [2,10,0.02])
     
     # TO TRANSCRIBE FROM A MIDI FILE
     
     from unroll import midi2keystrikes
     keystrikes = midi2keystrikes('tiger_rag.mid')
-    ks.transcribe('score.ly', quarter_durations = [50,100,0.02])
+    keystrikes.transcribe('score.ly', quarter_durations = [50,100,0.02])
 
 
 Then you must edit ``score.ly`` to correct the mistakes and when you are done you compile it with
@@ -36,12 +36,20 @@ Installation
 Unroll can be installed by unzipping the source code in one directory and using this command:
 ::
     
-    (sudo) python setup.py install
+    (sudo) pip install path/to/unroll/
+
+Or if you are in the same directory as unroll:
+::
+
+    pip install .
 
 You can also install it directly from the Python Package Index (PYPI_) with this command:
 ::
         
     (sudo) pip install unroll
+    # Note:
+    # This method currently fails with a ModuleNotFound error.
+    # For some reason, ez_setup.py is absent from that version.
 
 
 Contribute
