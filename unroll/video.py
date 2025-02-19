@@ -47,10 +47,12 @@ def video2rollscan(videofile, focus, start=0, end=None, savefile=None):
 
     from moviepy import VideoFileClip
 
-    if end is None:
-        end = videofile.duration
+    video = VideoFileClip(videofile, audio=False)
 
-    video = VideoFileClip(videofile, audio=False).subclipped(start, end)
+    if end is None:
+        end = video.duration
+
+    video = video.subclipped(start, end)
 
     tt = np.arange(0, video.duration, 1.0 / video.fps)
     result = np.vstack([focus(video.get_frame(t)) for t in tt])
@@ -98,7 +100,6 @@ def rollscan2keystrikes(
 
     keystrikes
         A KeyStrikes object (conversion of the roll image).
-
     """
     # get the profile of  min_luminosity( column of pixels)
     roll_greyscale = roll_image.mean(axis=2)  # collapse RGB to grey
